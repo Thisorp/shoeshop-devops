@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build JAR') {
       steps {
-        sh 'mvn clean package -DskipTests'
+	sh 'docker run --rm -v "$PWD":/app -w /app maven:3.8.7-openjdk-17 mvn clean package -DskipTests'
       }
     }
 
